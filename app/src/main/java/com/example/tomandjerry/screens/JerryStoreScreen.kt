@@ -33,6 +33,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.firstcomposeapp.composable.SpacerHorizontal
@@ -95,7 +96,7 @@ fun JerryStoreScreen() {
                             .clip(RoundedCornerShape(16.dp))
                             .border(
                                 1.5.dp, Color.Gray.copy(alpha = 0.2f), RoundedCornerShape(16.dp)
-                            ), colors = CardDefaults.cardColors(Color.White)
+                            ), colors = CardDefaults.cardColors(Color(0xFFEEF4F6))
                     ) {
                         Icon(
                             painter = painterResource(id = R.drawable.notification_icon),
@@ -300,3 +301,8 @@ val dataCard = listOf(
         imageResId = R.drawable.image_card_photo6,
     ),
 )
+@Preview
+@Composable
+fun JerryStoreScreenPreview(){
+    JerryStoreScreen()
+}

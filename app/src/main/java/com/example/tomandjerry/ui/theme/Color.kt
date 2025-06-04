@@ -16,3 +16,7 @@ val DarkBlueColor = Color(0xFF03578A)
 val Blue = Color(0xFF0685D0)
 val LightBlue = Color(0xFF035484)
 val CardColor = Color(0xff03446A)
+val WhiteColor = Color(0xffEEF4F6)
+
+val KitchenFontCardColor = Color(0x99121212)
+val KitchenPhotoCardColor = Color(0xFF226993)
