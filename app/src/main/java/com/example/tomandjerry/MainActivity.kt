@@ -7,12 +7,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import com.example.tomandjerry.screens.JerryStoreScreen
+import com.example.tomandjerry.screens.TomAccountScreen
 import com.example.tomandjerry.screens.TomKitchenScreen
 
 class MainActivity : ComponentActivity() {
@@ -20,11 +18,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Scaffold(
-                modifier = Modifier.fillMaxSize(),
-            ) {
+            Scaffold(Modifier.fillMaxSize()) {
                 Column(modifier = Modifier.padding(it)) {
-                    TomKitchenScreen()
+                    TomAccountScreen()
                 }
             }
         }
