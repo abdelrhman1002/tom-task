@@ -32,6 +32,7 @@ import com.example.tomandjerry.composable.TomAccountCard
 import com.example.tomandjerry.ui.theme.KitchenFontCardColor
 import com.example.tomandjerry.ui.theme.PrimaryTextColor
 import com.example.tomandjerry.ui.theme.SansArabic
+import com.example.tomandjerry.ui.theme.SecondaryTextColor
 import com.example.tomandjerry.ui.theme.WhiteColor
 
 @Composable
@@ -117,6 +118,7 @@ fun TomAccountScreen() {
                 modifier = Modifier
                     .fillMaxWidth()
                     .fillMaxHeight(0.702f)
+                    .padding(bottom = 22.dp)
                     .align(Alignment.BottomCenter),
                 colors = CardDefaults.cardColors(WhiteColor),
                 shape = RoundedCornerShape(
@@ -128,10 +130,7 @@ fun TomAccountScreen() {
                 Column(Modifier.verticalScroll(scrollState)) {
                     Card(
                         modifier = Modifier.padding(
-                            start = 20.dp,
-                            end = 20.dp,
-                            top = 32.dp,
-                            bottom = 8.dp
+                            start = 20.dp, end = 20.dp, top = 26.dp, bottom = 8.dp
                         ), colors = CardDefaults.cardColors(Color.Transparent)
                     ) {
 
@@ -192,17 +191,14 @@ fun TomAccountScreen() {
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(2.dp),
+                            .height(1.dp),
                         colors = CardDefaults.cardColors(Color(0x001A1F14).copy(0.07f))
                     ) {
 
                     }
                     Card(
                         modifier = Modifier.padding(
-                            start = 20.dp,
-                            end = 20.dp,
-                            top = 12.dp,
-                            bottom = 8.dp
+                            start = 20.dp, end = 20.dp, top = 12.dp, bottom = 8.dp
                         ), colors = CardDefaults.cardColors(Color.Transparent)
                     ) {
                         Text(
@@ -215,11 +211,17 @@ fun TomAccountScreen() {
                         SleepingPlaceOption("Mouses", R.drawable.alert_01)
                         SleepingPlaceOption("Last stolen meal", R.drawable.hamburger_02)
                         SleepingPlaceOption("Change sleep mood", R.drawable.sleeping)
-
+                        SpacerVertical(24)
+                        Text(
+                            "v.TomBeta",
+                            modifier = Modifier.align(Alignment.CenterHorizontally),
+                            color = Color(0x99121212).copy(alpha = 0.6f),
+                            fontSize = 14.sp,
+                            fontFamily = SansArabic,
+                            fontWeight = FontWeight(400)
+                        )
                     }
                 }
-
-
             }
         }
     }

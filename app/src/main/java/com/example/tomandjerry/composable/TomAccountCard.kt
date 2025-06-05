@@ -35,7 +35,7 @@ fun TomAccountCard(
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .height(80.dp)
+            .height(70.dp)
             .background(background, shape = RoundedCornerShape(16.dp)),
         contentAlignment = Alignment.Center
 
@@ -47,7 +47,7 @@ fun TomAccountCard(
                 Image(
                     painter = painterResource(image),
                     contentDescription = null,
-                    modifier = Modifier.size(60.dp),
+                    modifier = Modifier.size(50.dp),
                     alignment = Alignment.TopEnd
                 )
                 Column(Modifier.padding(start = 12.dp)) {
