@@ -1,5 +1,3 @@
-package com.example.tomandjerry.screens
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -17,6 +15,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -38,14 +37,11 @@ import com.example.tomandjerry.ui.theme.WhiteColor
 @Composable
 fun TomAccountScreen() {
 
-    Card(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color(0xffEEF4F6))
-    ) {
-        val scrollState = rememberScrollState()
-        Column(
-            modifier = Modifier.verticalScroll(scrollState).background(Color(0xffEEF4F6))
+    Column {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color(0xffEEF4F6))
         ) {
             Box {
                 Box(Modifier.fillMaxWidth()) {
@@ -54,7 +50,7 @@ fun TomAccountScreen() {
                         contentDescription = null,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .fillMaxHeight(0.325f)
+                            .fillMaxHeight(0.33f)
                     )
                     Card(
                         modifier = Modifier
@@ -116,106 +112,116 @@ fun TomAccountScreen() {
                     }
                 }
             }
+
             Card(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight(0.702f)
+                    .align(Alignment.BottomCenter),
                 colors = CardDefaults.cardColors(WhiteColor),
                 shape = RoundedCornerShape(
                     topStart = 24.dp, topEnd = 24.dp, bottomStart = 0.dp, bottomEnd = 0.dp
                 )
-
             ) {
-                Card(
-                    modifier = Modifier.padding(
-                        start = 20.dp, end = 20.dp, top = 30.dp, bottom = 8.dp
-                    ), colors = CardDefaults.cardColors(Color.Transparent),
+                val scrollState = rememberScrollState()
 
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                Column(Modifier.verticalScroll(scrollState)) {
+                    Card(
+                        modifier = Modifier.padding(
+                            start = 20.dp,
+                            end = 20.dp,
+                            top = 32.dp,
+                            bottom = 8.dp
+                        ), colors = CardDefaults.cardColors(Color.Transparent)
                     ) {
-                        TomAccountCard(
-                            mainText = "2M 12K",
-                            secondText = "No. of quarrels",
-                            image = R.drawable.stat_icon_container,
-                            background = Color(0xffD0E5F0),
-                            modifier = Modifier.weight(1f)
+
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            TomAccountCard(
+                                mainText = "2M 12K",
+                                secondText = "No. of quarrels",
+                                image = R.drawable.stat_icon_container,
+                                background = Color(0xffD0E5F0),
+                                modifier = Modifier.weight(1f)
+                            )
+                            TomAccountCard(
+                                mainText = "+500 h",
+                                secondText = "Chase time",
+                                image = R.drawable.stat_icon_container2,
+                                background = Color(0xffDEEECD),
+                                modifier = Modifier.weight(1f)
+                            )
+
+                        }
+                        SpacerVertical(12)
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            TomAccountCard(
+                                mainText = "2M 12K",
+                                secondText = "Hunting times",
+                                image = R.drawable.stat_icon_container3,
+                                background = Color(0xffF2D9E7),
+                                modifier = Modifier.weight(1f)
+                            )
+                            TomAccountCard(
+                                mainText = "3M 7K",
+                                secondText = "Heartbroken",
+                                image = R.drawable.stat_icon_container4,
+                                background = Color(0xffFAEDCF),
+                                modifier = Modifier.weight(1f)
+                            )
+                        }
+                        SpacerVertical(30)
+                        Text(
+                            "Tom settings",
+                            fontWeight = FontWeight(700),
+                            fontFamily = SansArabic,
+                            fontSize = 26.sp,
+                            color = KitchenFontCardColor.copy(.87f)
                         )
-                        TomAccountCard(
-                            mainText = "+500 h",
-                            secondText = "Chase time",
-                            image = R.drawable.stat_icon_container2,
-                            background = Color(0xffDEEECD),
-                            modifier = Modifier.weight(1f)
-                        )
+                        SleepingPlaceOption("Change sleeping place", R.drawable.bed_single_02)
+                        SleepingPlaceOption("Meow settings", R.drawable.cat)
+                        SleepingPlaceOption("Password to open the fridge", R.drawable.fridge)
 
                     }
-                    SpacerVertical(12)
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(2.dp),
+                        colors = CardDefaults.cardColors(Color(0x001A1F14).copy(0.07f))
                     ) {
-                        TomAccountCard(
-                            mainText = "2M 12K",
-                            secondText = "Hunting times",
-                            image = R.drawable.stat_icon_container3,
-                            background = Color(0xffF2D9E7),
-                            modifier = Modifier.weight(1f)
-                        )
-                        TomAccountCard(
-                            mainText = "3M 7K",
-                            secondText = "Heartbroken",
-                            image = R.drawable.stat_icon_container4,
-                            background = Color(0xffFAEDCF),
-                            modifier = Modifier.weight(1f)
-                        )
+
                     }
-                    SpacerVertical(30)
-                    Text(
-                        "Tom settings",
-                        fontWeight = FontWeight(700),
-                        fontFamily = SansArabic,
-                        fontSize = 26.sp,
-                        color = KitchenFontCardColor.copy(.87f)
-                    )
-                    SpacerVertical(4)
-                    SleepingPlaceOption("Change sleeping place", R.drawable.bed_single_02)
-                    SleepingPlaceOption("Meow settings", R.drawable.cat)
-                    SleepingPlaceOption("Password to open the fridge", R.drawable.fridge)
+                    Card(
+                        modifier = Modifier.padding(
+                            start = 20.dp,
+                            end = 20.dp,
+                            top = 12.dp,
+                            bottom = 8.dp
+                        ), colors = CardDefaults.cardColors(Color.Transparent)
+                    ) {
+                        Text(
+                            "His favorite foods",
+                            fontWeight = FontWeight(700),
+                            fontFamily = SansArabic,
+                            fontSize = 26.sp,
+                            color = KitchenFontCardColor.copy(.87f)
+                        )
+                        SleepingPlaceOption("Mouses", R.drawable.alert_01)
+                        SleepingPlaceOption("Last stolen meal", R.drawable.hamburger_02)
+                        SleepingPlaceOption("Change sleep mood", R.drawable.sleeping)
 
+                    }
                 }
 
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(2.dp),
-                    colors = CardDefaults.cardColors(Color(0x001A1F14).copy(0.07f))
-                ) {
 
-                }
-                Card(
-                    modifier = Modifier.padding(
-                        start = 20.dp, end = 20.dp, top = 18.dp, bottom = 8.dp
-                    ), colors = CardDefaults.cardColors(Color.Transparent)
-                ) {
-                    Text(
-                        "His favorite foods",
-                        fontWeight = FontWeight(700),
-                        fontFamily = SansArabic,
-                        fontSize = 26.sp,
-                        color = KitchenFontCardColor.copy(.87f)
-                    )
-                    SleepingPlaceOption("Mouses", R.drawable.alert_01)
-                    SleepingPlaceOption("Last stolen meal", R.drawable.hamburger_02)
-                    SleepingPlaceOption("Change sleep mood", R.drawable.sleeping)
-
-                }
-                SpacerVertical(12)
-                Text("v.TomBeta", fontFamily = SansArabic,
-                    fontSize = 16.sp, color = PrimaryTextColor.copy(0.6f), modifier = Modifier.align(Alignment.CenterHorizontally))
             }
-            SpacerVertical(16)
-
         }
     }
+
 }
